@@ -2,11 +2,14 @@ package repository;
 
 import model.Episode;
 import database.IDB;
+import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class EpisodeRepository {
 
     private final IDB db;
@@ -14,6 +17,7 @@ public class EpisodeRepository {
     public EpisodeRepository(IDB db) {
         this.db = db;
     }
+
 
     public void create(Episode e) {
 
@@ -41,6 +45,7 @@ public class EpisodeRepository {
             System.out.println("sql error: " + ex.getMessage());
         }
     }
+
 
     public Episode getById(int id) {
         Connection c = null;
@@ -70,6 +75,7 @@ public class EpisodeRepository {
         }
         return null;
     }
+
 
     public List<Episode> getAll() {
         List<Episode> list = new ArrayList<>();
@@ -101,6 +107,7 @@ public class EpisodeRepository {
         return null;
     }
 
+
     public void update(int id, Episode e) {
         Connection c = null;
         try {
@@ -128,6 +135,7 @@ public class EpisodeRepository {
         }
     }
 
+
     public void delete(int id) {
         Connection c = null;
         try {
@@ -136,7 +144,7 @@ public class EpisodeRepository {
             ps1.setInt(1, id);
             ps1.executeUpdate();
 
-            PreparedStatement ps2 = c.prepareStatement("DELETE FROM media_content WHERE media_id=(SELECT media_id FROM episodes WHERE episode_id=?)");
+            PreparedStatement ps2 = c.prepareStatement("DELETE FROM media_content WHERE media_id=?");
             ps2.setInt(1, id);
             ps2.executeUpdate();
 

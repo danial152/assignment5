@@ -2,11 +2,14 @@ package repository;
 
 import model.Movie;
 import database.IDB;
+import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class MovieRepository {
     private final IDB db;
 
@@ -37,6 +40,7 @@ public class MovieRepository {
 
     }
 
+
     public Movie getById(int id) {
         Connection c = null;
         try {
@@ -65,6 +69,7 @@ public class MovieRepository {
         return null;
     }
 
+
     public List<Movie> getAll() {
 
         Connection c = null;
@@ -92,6 +97,7 @@ public class MovieRepository {
         return null;
     }
 
+
     public void update(int id, Movie m) {
         Connection c = null;
         try {
@@ -114,6 +120,7 @@ public class MovieRepository {
             System.out.println("sql error: " + e.getMessage());
         }
     }
+
 
     public void delete(int id) throws SQLException {
         Connection c = null;

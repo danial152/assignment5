@@ -2,17 +2,21 @@ package repository;
 
 import model.Series;
 import database.IDB;
+import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class SeriesRepository {
     private final IDB db;
 
     public SeriesRepository(IDB db) {
         this.db = db;
     }
+
 
     public void create(Series s) {
         Connection c = null;
@@ -36,6 +40,7 @@ public class SeriesRepository {
             System.out.println("sql error: " + e.getMessage());
         }
     }
+
 
     public Series getById(int id) {
         Connection c = null;
@@ -65,6 +70,7 @@ public class SeriesRepository {
         return null;
     }
 
+
     public List<Series> getAll() {
 
         Connection c = null;
@@ -92,6 +98,7 @@ public class SeriesRepository {
         return null;
     }
 
+
     public void update(int id, Series s) {
         Connection c = null;
         try {
@@ -114,6 +121,7 @@ public class SeriesRepository {
             System.out.println("sql error: " + e.getMessage());
         }
     }
+
 
     public void delete(int id) {
         Connection c = null;

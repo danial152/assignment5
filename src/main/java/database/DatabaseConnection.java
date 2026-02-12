@@ -5,6 +5,16 @@ import java.sql.*;
 
 public class DatabaseConnection implements IDB {
 
+    private DatabaseConnection() {}
+
+    public static DatabaseConnection getInstance() {
+        if (instance == null) {
+            instance = new DatabaseConnection();
+        }
+        return instance;
+    }
+
+    private static DatabaseConnection instance;
     private Connection connection;
 
     @Override

@@ -1,8 +1,10 @@
+/*
+package com.example.demo;
+
 import database.*;
 import model.*;
 import repository.*;
 
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) throws SQLException {
 
-        IDB db = new DatabaseConnection();
+        IDB db = DatabaseConnection.getInstance();
 
         MovieRepository movieRepo = new MovieRepository(db);
         SeriesRepository seriesRepo = new SeriesRepository(db);
@@ -72,3 +74,4 @@ public class Main {
 
     }
 }
+*/
