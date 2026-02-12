@@ -1,8 +1,4 @@
-A. SOLID documentation
-
-
---------------------
-C. Project Overvoew  
+A. Project Overview  
   
 this project is a java application that connects to the database, helping to work with various media content such as movies, series, episodes.   
   
